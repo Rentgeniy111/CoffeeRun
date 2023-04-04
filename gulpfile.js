@@ -16,9 +16,14 @@ function styles() {
 }
 
 function scripts() {
-  return src(["work/scripts/*.js", "!work/scripts/main.min.js"])
+  return src([
+    "node_modules/jquery/dist/jquery.min",
+    "work/scripts/formhandler.js",
+    "work/scripts/datastore.js",
+    "work/scripts/truck.js",
+    "work/scripts/main.js",
+  ])
     .pipe(concat("main.min.js"))
-    .pipe(uglify())
     .pipe(dest("work/scripts"))
     .pipe(browserSync.stream());
 }
