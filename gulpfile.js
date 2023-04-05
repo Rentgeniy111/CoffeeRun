@@ -17,7 +17,7 @@ function styles() {
 
 function scripts() {
   return src([
-    "node_modules/jquery/dist/jquery.min",
+    "node_modules/jquery/dist/jquery.min.js",
     "work/scripts/formhandler.js",
     "work/scripts/datastore.js",
     "work/scripts/truck.js",
