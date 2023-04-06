@@ -18,6 +18,7 @@ function styles() {
 function scripts() {
   return src([
     "node_modules/jquery/dist/jquery.min.js",
+    "work/scripts/validation.js",
     "work/scripts/checklist.js",
     "work/scripts/formhandler.js",
     "work/scripts/datastore.js",
