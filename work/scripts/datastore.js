@@ -2,21 +2,31 @@
 
 (function (window) {
   let App = window.App || {};
+  let Promise = window.Promise;
   class DataStore {
     constructor() {
       this.data = {};
     }
-    add(key, value) {
-      this.data[key] = value;
+
+    promiseResolvedWith(value) {
+      var promise = new Promise(function (resolve, reject) {
+        resolve(value);
+      });
+      return promise;
     }
+
+    add(key, value) {
+      return promiseResolvedWith(null);
+    }
+
     get(key) {
-      return this.data[key];
+      return promiseResolvedWith(this.data[key]);
     }
     getAll() {
-      return this.data;
+      return promiseResolvedWith(this.data);
     }
     remove(key) {
-      delete this.data[key];
+      return promiseResolvedWith(null);
     }
   }
 

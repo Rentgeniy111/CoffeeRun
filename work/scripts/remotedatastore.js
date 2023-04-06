@@ -11,20 +11,31 @@
     }
 
     add(key, value) {
-      $.post(this.serverUrl, value, function (serverResponse) {
+      return $.post(this.serverUrl, value, function (serverResponse) {
         console.log(serverResponse);
       });
     }
 
     getAll(cb) {
-      $.get(this.serverUrl + "/" + key, function (serverResponse) {
-        console.log(serverResponse);
-        cb(serverResponse);
+      return $.get(this.serverUrl + "/" + key, function (serverResponse) {
+        if (cb) {
+          console.log(serverResponse);
+          cb(serverResponse);
+        }
+      });
+    }
+
+    get(key, cb) {
+      return $.get(this.serverUrl + "/" + key, function (serverResponse) {
+        if (cb) {
+          console.log(serverResponse);
+          cb(serverResponse);
+        }
       });
     }
 
     remove(key) {
-      $.ajax(this.serverUrl + "/" + key, {
+      return $.ajax(this.serverUrl + "/" + key, {
         type: "DELETE",
       });
     }
