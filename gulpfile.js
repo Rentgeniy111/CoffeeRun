@@ -21,6 +21,7 @@ function scripts() {
     "work/scripts/validation.js",
     "work/scripts/checklist.js",
     "work/scripts/formhandler.js",
+    "work/scripts/remotedatastore.js",
     "work/scripts/datastore.js",
     "work/scripts/truck.js",
     "work/scripts/main.js",
