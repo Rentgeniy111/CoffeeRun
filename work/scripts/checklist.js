@@ -13,11 +13,29 @@
       }
     }
 
+    addClickHandler(fn) {
+      this.$element.on(
+        "click",
+        "input",
+        function (event) {
+          var email = event.target.value;
+          this.removeRow(email);
+          fn(email);
+        }.bind(this)
+      );
+    }
+
     addRow(coffeeOrder) {
-      // Создаем новый экземпляр строки на основе информации о заказе кофе
+      this.removeRow(coffeeOrder.emailAddress);
       var rowElement = new Row(coffeeOrder);
-      // Добавляем свойство $element нового экземпляра строки в перечень
       this.$element.append(rowElement.$element);
+    }
+
+    removeRow(email) {
+      this.$element
+        .find('[value="' + email + '"]')
+        .closest('[data-coffee-order="checkbox"]')
+        .remove();
     }
   }
 
